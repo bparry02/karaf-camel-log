@@ -13,6 +13,21 @@ The example can be built with
     mvn clean install
 
 
+### Running the example in OpenShift
+
+Create a custom SCC to be able to run the container as the `jboss` user:
+
+    oc create -f jboss-scc.yml
+
+Create a new application with:
+
+    oc new-app openshift/fis-karaf-openshift~https://github.com/bparry02/karaf-camel-log.git --name=karaf-camel-log
+
+Modify the DeploymentConfig to run the container as the `jboss` user:
+
+    oc patch dc test-karaf -p '{"spec":{"template":{"spec":{"securityContext":{"runAsUser":185}}}}}'
+
+
 ### Running the example in fabric8
 
 It is assumed a running Kubernetes platform is already running. If not you can find details how to [get started](http://fabric8.io/guide/getStarted/index.html).
