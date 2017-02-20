@@ -171,6 +171,7 @@
             <id>karaf-assembly</id>
             <goals>
               <goal>assembly</goal>
+              <goal>archive</goal>
             </goals>
             <phase>install</phase>
           </execution>
@@ -179,7 +180,7 @@
           <javase>1.8</javase>
           <karafVersion>v4x</karafVersion>
           <useReferenceUrls>true</useReferenceUrls>
-          <archiveTarGz>false</archiveTarGz>
+          <archiveTarGz>true</archiveTarGz>
           <includeBuildOutputDirectory>false</includeBuildOutputDirectory>
           <startupFeatures>
             <feature>framework</feature>
