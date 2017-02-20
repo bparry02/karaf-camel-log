@@ -25,7 +25,7 @@ Create a new application with:
 
 Modify the DeploymentConfig to run the container as the `jboss` user:
 
-    oc patch dc test-karaf -p '{"spec":{"template":{"spec":{"securityContext":{"runAsUser":185}}}}}'
+    oc patch dc karaf-camel-log -p '{"spec":{"template":{"spec":{"securityContext":{"runAsUser":185}}}}}'
 
 
 ### Running the example in fabric8
